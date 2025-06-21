@@ -1,8 +1,29 @@
+
+
+
+
+
+// Automatically run fetchBooks when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  fetchBooks();
+ 
+}
+);
+
+
+//fetching game of thrones books and passing them to the API
+
+
 function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
+  fetch('https://anapioficeandfire.com/api/books')
+    .then(response => response.json())
+    .then(data => renderBooks(data))
 }
 
+//renderBooks function to display the books on the page
+document.addEventListener('DOMContentLoaded', () => {
+  fetchBooks();
+});
 function renderBooks(books) {
   const main = document.querySelector('main');
   books.forEach(book => {
@@ -12,6 +33,8 @@ function renderBooks(books) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  fetchBooks();
-});
+
+
+
+
+
